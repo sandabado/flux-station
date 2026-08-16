@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Nunito', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body { @apply bg-white font-body text-flux-ink antialiased; }
+h1, h2, h3, h4, h5, h6 { @apply font-display; text-wrap: balance; }
+p { text-wrap: pretty; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { touch-action: manipulation; }
+::selection { background: rgba(108, 92, 231, .2); color: #1A1A2E; }
+:focus-visible { outline: 3px solid #6C5CE7; outline-offset: 3px; }
+
+.shimmer-text {
+  background-size: 200% 200%;
+  animation: shimmer 5s ease infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.dragging-active * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.glass {
+  background: rgba(255, 255, 255, .74);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+.soft-image-blend::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+}
+
+.soft-image-blend-lavender::after {
+  background:
+    linear-gradient(to right, #eeebff 0%, transparent 11%, transparent 89%, #eeebff 100%),
+    linear-gradient(to bottom, #eeebff 0%, transparent 12%, transparent 86%, #eeebff 100%);
+}
+
+.soft-image-blend-detail::after {
+  background: linear-gradient(to bottom, transparent 66%, #08090b 100%);
+}
+
+.soft-image-blend-desk::after {
+  background:
+    linear-gradient(to bottom, #1a1a2e 0%, transparent 13%, transparent 86%, #1a1a2e 100%),
+    linear-gradient(to right, rgba(26, 26, 46, .5) 0%, transparent 16%, transparent 92%, rgba(26, 26, 46, .35) 100%);
+}
+
+@media (min-width: 1024px) {
+  .soft-image-blend-detail::after {
+    background: linear-gradient(to right, transparent 70%, #08090b 100%);
+  }
+}
+
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: #F8F9FD; }
+::-webkit-scrollbar-thumb { background: #6C5CE7; border: 2px solid #F8F9FD; border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
