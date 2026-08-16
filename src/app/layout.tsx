@@ -10,7 +10,7 @@ const nunito = Nunito({ subsets: ['latin'], variable: '--font-display', display:
 const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://fluxstation.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://fluxstation.com'),
   title: { default: 'FluxStation Kids — Build Your Space. Build Your World.', template: '%s | FluxStation Kids' },
   description: 'Modular magnetic hex tile organizers for kids 6–12. Designed by a father-son team and built to snap, remix, and grow.',
   keywords: ['kids organizer', 'modular tiles', 'magnetic hex tiles', '3D printing', 'STEM'],
